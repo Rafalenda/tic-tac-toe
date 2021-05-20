@@ -1,24 +1,26 @@
 import React from "react";
-import Square from "./Square";
+import { Square } from "./Square";
 
-export default function Game() {
-  return (
-    <div className="Game">
-      <div>
-        <Square />
-        <Square />
-        <Square />
+export default class Game extends React.Component {
+  render() {
+    return (
+      <div className="Game">
+        <div>
+          <Square />
+          <Square />
+          <Square />
+        </div>
+        <div>
+          <Square />
+          <Square />
+          <Square />
+        </div>
+        <div>
+          <Square />
+          <Square />
+          <Square />
+        </div>
       </div>
-      <div>
-        <Square />
-        <Square />
-        <Square />
-      </div>
-      <div>
-        <Square />
-        <Square />
-        <Square />
-      </div>
-    </div>
-  );
+    );
+  }
 }
