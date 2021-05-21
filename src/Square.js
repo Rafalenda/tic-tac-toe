@@ -18,7 +18,12 @@ export class Square extends React.Component {
 
   render() {
     return (
-      <button className="btn btn-success" onClick={() => this.handleClick()}>
+      <button
+        className="btn btn-success"
+        onClick={() => {
+          this.handleClick();
+        }}
+      >
         {this.state.value}
       </button>
     );
