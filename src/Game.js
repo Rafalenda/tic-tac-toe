@@ -2,23 +2,78 @@ import React from "react";
 import { Square } from "./Square";
 
 export default class Game extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: "X",
+    };
+  }
+  handleClick() {
+    this.setState({ value: "o" });
+  }
+
   render() {
     return (
       <div className="Game">
         <div>
-          <Square />
-          <Square />
-          <Square />
+          <Square
+            jogada={this.state.value}
+            onClick={() => {
+              this.handleClick();
+            }}
+          />
+          <Square
+            jogada={this.state.value}
+            onClick={() => {
+              this.handleClick();
+            }}
+          />
+          <Square
+            jogada={this.state.value}
+            onClick={() => {
+              this.handleClick();
+            }}
+          />
         </div>
         <div>
-          <Square />
-          <Square />
-          <Square />
+          <Square
+            jogada={this.state.value}
+            onClick={() => {
+              this.handleClick();
+            }}
+          />
+          <Square
+            jogada={this.state.value}
+            onClick={() => {
+              this.handleClick();
+            }}
+          />
+          <Square
+            jogada={this.state.value}
+            onClick={() => {
+              this.handleClick();
+            }}
+          />
         </div>
         <div>
-          <Square />
-          <Square />
-          <Square />
+          <Square
+            jogada={this.state.value}
+            onClick={() => {
+              this.handleClick();
+            }}
+          />
+          <Square
+            jogada={this.state.value}
+            onClick={() => {
+              this.handleClick();
+            }}
+          />
+          <Square
+            jogada={this.state.value}
+            onClick={() => {
+              this.handleClick();
+            }}
+          />
         </div>
       </div>
     );

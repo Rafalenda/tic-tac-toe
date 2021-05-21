@@ -4,15 +4,16 @@ export class Square extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: "?",
+      value: null,
     };
   }
   handleClick() {
-    this.setState(
-      (this.newState = {
-        value: "X",
-      })
-    );
+    if (this.state.value === null) {
+      this.setState({
+        value: this.props.jogada,
+      });
+      this.props.onClick();
+    }
   }
 
   render() {
