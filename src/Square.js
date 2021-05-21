@@ -8,11 +8,16 @@ export class Square extends React.Component {
     };
   }
   handleClick() {
+    //if there is a winner do not execute next lines
+    if (this.props.winner != null) {
+      return;
+    }
+
     if (this.state.value === null) {
       this.setState({
         value: this.props.jogada,
       });
-      this.props.onClick();
+      this.props.onClick2();
     }
   }
 
