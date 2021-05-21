@@ -7,9 +7,23 @@ export default class Game extends React.Component {
     this.state = {
       value: "X",
       winner: null,
+      squares: {},
     };
   }
   handleClick2(SqAddress) {
+    //store this.state.value of the current square in this.state.squares
+    let newSquares = JSON.parse(JSON.stringify(this.state.squares));
+    newSquares[SqAddress] = this.state.value;
+    const newState = {
+      squares: newSquares,
+    };
+    this.setState(newState);
+
+    //determine the winner when player of square 1 is the same as of square 2
+    if (newSquares["1"] && newSquares["1"] === newSquares["2"]) {
+      this.setState({ winner: this.state.value });
+    }
+
     //avoid changing state of object if there is a winner
     if (this.state.winner === null) {
       //when I click I want to change the value of the state; if it is X change to O and vice versa
@@ -18,10 +32,6 @@ export default class Game extends React.Component {
       } else {
         this.setState({ value: "X" });
       }
-    }
-    //determine the winner when user clicks on the square 1.
-    if (SqAddress === "1") {
-      this.setState({ winner: this.state.value });
     }
   }
 
@@ -56,21 +66,21 @@ export default class Game extends React.Component {
           <Square
             jogada={this.state.value}
             onClick2={() => {
-              this.handleClick2("1");
+              this.handleClick2("4");
             }}
             winner={this.state.winner}
           />
           <Square
             jogada={this.state.value}
             onClick2={() => {
-              this.handleClick2("2");
+              this.handleClick2("5");
             }}
             winner={this.state.winner}
           />
           <Square
             jogada={this.state.value}
             onClick2={() => {
-              this.handleClick2("3");
+              this.handleClick2("6");
             }}
             winner={this.state.winner}
           />
@@ -79,21 +89,21 @@ export default class Game extends React.Component {
           <Square
             jogada={this.state.value}
             onClick2={() => {
-              this.handleClick2("1");
+              this.handleClick2("7");
             }}
             winner={this.state.winner}
           />
           <Square
             jogada={this.state.value}
             onClick2={() => {
-              this.handleClick2("2");
+              this.handleClick2("8");
             }}
             winner={this.state.winner}
           />
           <Square
             jogada={this.state.value}
             onClick2={() => {
-              this.handleClick2("3");
+              this.handleClick2("9");
             }}
             winner={this.state.winner}
           />
