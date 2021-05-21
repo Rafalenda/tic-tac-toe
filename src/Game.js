@@ -6,11 +6,13 @@ export default class Game extends React.Component {
     super(props);
     this.state = {
       value: "X",
+      winner: null,
     };
   }
-  handleClick() {
+  handleClick2() {
+    //when I click I want to change the value of the state; if it is X change to O and vice versa
     if (this.state.value === "X") {
-      this.setState({ value: "o" });
+      this.setState({ value: "O" });
     } else {
       this.setState({ value: "X" });
     }
@@ -19,24 +21,24 @@ export default class Game extends React.Component {
   render() {
     return (
       <div className="Game">
-        <span>{this.state.value}</span>
+        {this.state.winner && <h2>{this.state.winner} is winner</h2>}
         <div>
           <Square
             jogada={this.state.value}
             onClick={() => {
-              this.handleClick();
+              this.handleClick2();
             }}
           />
           <Square
             jogada={this.state.value}
             onClick={() => {
-              this.handleClick();
+              this.handleClick2();
             }}
           />
           <Square
             jogada={this.state.value}
             onClick={() => {
-              this.handleClick();
+              this.handleClick2();
             }}
           />
         </div>
@@ -44,19 +46,19 @@ export default class Game extends React.Component {
           <Square
             jogada={this.state.value}
             onClick={() => {
-              this.handleClick();
+              this.handleClick2();
             }}
           />
           <Square
             jogada={this.state.value}
             onClick={() => {
-              this.handleClick();
+              this.handleClick2();
             }}
           />
           <Square
             jogada={this.state.value}
             onClick={() => {
-              this.handleClick();
+              this.handleClick2();
             }}
           />
         </div>
@@ -64,19 +66,19 @@ export default class Game extends React.Component {
           <Square
             jogada={this.state.value}
             onClick={() => {
-              this.handleClick();
+              this.handleClick2();
             }}
           />
           <Square
             jogada={this.state.value}
             onClick={() => {
-              this.handleClick();
+              this.handleClick2();
             }}
           />
           <Square
             jogada={this.state.value}
             onClick={() => {
-              this.handleClick();
+              this.handleClick2();
             }}
           />
         </div>
