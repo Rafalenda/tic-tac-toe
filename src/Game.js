@@ -25,7 +25,7 @@ export default class Game extends React.Component {
   render() {
     return (
       <div className="Game">
-        {<h2>{this.state.winner} is winner</h2>}
+        {this.state.winner && <h2>{this.state.winner} is winner</h2>}
         <div>
           <Square
             jogada={this.state.value}
