@@ -7,20 +7,45 @@ export default class Game extends React.Component {
     this.state = {
       value: "X",
       winner: null,
-      squares: {},
+      playersIndex: {},
     };
   }
   handleClick2(SqAddress) {
     //store this.state.value of the current square in this.state.squares
-    let newSquares = JSON.parse(JSON.stringify(this.state.squares));
-    newSquares[SqAddress] = this.state.value;
+    let newPlayersIndex = JSON.parse(JSON.stringify(this.state.playersIndex));
+    newPlayersIndex[SqAddress] = this.state.value;
     const newState = {
-      squares: newSquares,
+      playersIndex: newPlayersIndex,
     };
     this.setState(newState);
 
-    //determine the winner when player of square 1 is the same as of square 2
-    if (newSquares["1"] && newSquares["1"] === newSquares["2"]) {
+    //determine the winner for all the cases
+    if (
+      (newPlayersIndex["1"] &&
+        newPlayersIndex["1"] === newPlayersIndex["2"] &&
+        newPlayersIndex["2"] === newPlayersIndex["3"]) ||
+      (newPlayersIndex["4"] &&
+        newPlayersIndex["4"] === newPlayersIndex["5"] &&
+        newPlayersIndex["5"] === newPlayersIndex["6"]) ||
+      (newPlayersIndex["7"] &&
+        newPlayersIndex["7"] === newPlayersIndex["8"] &&
+        newPlayersIndex["8"] === newPlayersIndex["9"]) ||
+      (newPlayersIndex["1"] &&
+        newPlayersIndex["1"] === newPlayersIndex["4"] &&
+        newPlayersIndex["4"] === newPlayersIndex["7"]) ||
+      (newPlayersIndex["2"] &&
+        newPlayersIndex["2"] === newPlayersIndex["5"] &&
+        newPlayersIndex["5"] === newPlayersIndex["8"]) ||
+      (newPlayersIndex["3"] &&
+        newPlayersIndex["3"] === newPlayersIndex["6"] &&
+        newPlayersIndex["6"] === newPlayersIndex["9"]) ||
+      (newPlayersIndex["1"] &&
+        newPlayersIndex["1"] === newPlayersIndex["5"] &&
+        newPlayersIndex["5"] === newPlayersIndex["9"]) ||
+      (newPlayersIndex["3"] &&
+        newPlayersIndex["3"] === newPlayersIndex["5"] &&
+        newPlayersIndex["5"] === newPlayersIndex["7"])
+    ) {
       this.setState({ winner: this.state.value });
     }
 
